@@ -15,11 +15,11 @@ struct ImageTest create_image(unsigned width, unsigned height){
     return image;
 }
 
-struct VertexTest* create_vertices(unsigned count){
-    struct VertexTest* vertices = (struct VertexTest*)malloc(count * sizeof(struct VertexTest));
+struct Vertex* create_vertices(unsigned count){
+    struct Vertex* vertices = (struct Vertex*)malloc(count * sizeof(struct Vertex));
 
     for(unsigned v = 0; v < count; v++)
-        *(vertices + v) = (struct VertexTest){
+        *(vertices + v) = (struct Vertex){
             (struct VertexAttrib){ 0.0f, 0.0f, 0.0f },
             (struct VertexAttrib){ 0.0f, 0.0f, 0.0f },
             (struct VertexAttrib){ 0.0f, 0.0f, 0.0f },

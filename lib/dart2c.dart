@@ -1,17 +1,8 @@
 import 'dart:ffi' as ffi;
-import 'dart:io' show Directory, Platform;
 
-String getLibPath(){
-  String path = "F:\\Codex\\PROJECT\\dart2c\\bin\\Debug\\Dart2C.dll";
+import 'common.dart';
 
-  // if(Platform.isWindows) libPath += "Debug\\Dart2C.dll";
-
-  return path;
-}
-
-String libPath = getLibPath();
-
-final library = ffi.DynamicLibrary.open(libPath);
+final library = getLib("Dart2C");
 
 typedef HelloWorldFunc = ffi.Void Function();
 typedef HelloWorld = void Function();
@@ -36,19 +27,17 @@ final class VertexAttrib extends ffi.Struct {
   external double z;
 }
 
-final class VertexTest extends ffi.Struct {
+final class Vertex extends ffi.Struct {
   external VertexAttrib pos;
   external VertexAttrib texcoord;
   external VertexAttrib normal;
   external VertexAttrib color;
 }
 
-typedef CreateVerticesFunc = ffi.Pointer<VertexTest> Function(ffi.Uint32 count);
-typedef CreateVertices = ffi.Pointer<VertexTest> Function(int count);
+typedef CreateVerticesFunc = ffi.Pointer<Vertex> Function(ffi.Uint32 count);
+typedef CreateVertices = ffi.Pointer<Vertex> Function(int count);
 
 void hello_c() {
-  print("Library path is $libPath");
-
   final HelloWorld hello_world_func = library.lookup<ffi.NativeFunction<HelloWorldFunc>>("hello_world").asFunction();
 
   hello_world_func();

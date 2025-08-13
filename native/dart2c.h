@@ -18,11 +18,11 @@ struct VertexAttrib {
 
 struct VertexDesc { unsigned count; };
 
-struct VertexTest {
+struct Vertex {
     struct VertexAttrib pos;
     struct VertexAttrib texcoord;
     struct VertexAttrib normal;
     struct VertexAttrib color;
 };
 
-__declspec(dllexport) struct VertexTest* create_vertices(unsigned count);
+__declspec(dllexport) struct Vertex* create_vertices(unsigned count);
