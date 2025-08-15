@@ -28,8 +28,7 @@ final class Rasteron_Image extends ffi.Struct {
 typedef SolidImgFunc = ffi.Pointer<Rasteron_Image> Function(Rasteron_Size size, ffi.Uint32 color);
 typedef SolidImg = ffi.Pointer<Rasteron_Image> Function(Rasteron_Size size, int color);
 
-void rasterlibTest(){
-
+void imageTest(){
   final getSize_func = rasterLib.lookup<ffi.NativeFunction<GetImgSizeFunc>>("internal_create_size");
   final getSize = getSize_func.asFunction<GetImgSize>();
 

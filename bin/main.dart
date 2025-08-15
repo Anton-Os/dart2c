@@ -10,5 +10,7 @@ void main(List<String> arguments) {
 
   dart2cpp.hello();
 
-  dart2rasterlib.rasterlibTest();
+  dart2rasterlib.imageTest();
+
+  dart2geolib.shapeTest();
 }
