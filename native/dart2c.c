@@ -4,15 +4,15 @@ void hello_world(){
     puts("Hello C world!");
 }
 
-struct ImageTest create_image(unsigned width, unsigned height){
-    struct ImageTest image = {};
-    image.width = width;
-    image.height = height;
-    image.data = (unsigned*)malloc(sizeof(unsigned) * width * height);
+struct StructTest create_struct(unsigned width, unsigned height){
+    struct StructTest testStruct = {};
+    testStruct.width = width;
+    testStruct.height = height;
+    testStruct.data = (unsigned*)malloc(sizeof(unsigned) * width * height);
 
-    printf("Created image with width: %d, and height: %d", width, height);
+    printf("Created testStruct with width: %d, and height: %d", width, height);
 
-    return image;
+    return testStruct;
 }
 
 struct Vertex* create_vertices(unsigned count){

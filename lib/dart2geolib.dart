@@ -41,6 +41,9 @@ final class Geo_Vertex extends ffi.Struct {
   external ffi.Array<ffi.Float> tangent;
 }
 
+typedef GenSurfaceFunc = ffi.Pointer<Geo_Vertex> Function(Shape2D shape, ffi.Float z);
+typedef GenSurface = ffi.Pointer<Geo_Vertex> Function(Shape2D shape, double z);
+
 void shapeTest(){
   final createShape2D_func = geoLib.lookup<ffi.NativeFunction<CreateShape2DFunc>>("create_shape2D");
   final createShape2D = createShape2D_func.asFunction<CreateShape2D>();
@@ -55,4 +58,9 @@ void shapeTest(){
   Shape3D shape3D = createShape3D(1.0, 3, 3);
 
   print("Generated shape with radius: ${shape3D.radius}, and segs: ${shape3D.xSegs}, ${shape3D.ySegs}");
+
+  final genSurface_func = geoLib.lookup<ffi.NativeFunction<GenSurfaceFunc>>("genSurface_vertices");
+  final genSurface = genSurface_func.asFunction<GenSurface>();
+
+  ffi.Pointer<Geo_Vertex> vertices = genSurface(createShape2D(1.0, 3), 0.0);
 }

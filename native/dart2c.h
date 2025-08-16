@@ -1,14 +1,14 @@
-#include <stdio.h>
+#include "common.h"
 
-__declspec(dllexport) void hello_world();
+DllExport void hello_world();
 
-struct ImageTest {
+struct StructTest {
     unsigned width;
     unsigned height;
     unsigned* data;
 };
 
-__declspec(dllexport) struct ImageTest create_image(unsigned width, unsigned height);
+DllExport struct StructTest create_struct(unsigned width, unsigned height);
 
 struct VertexAttrib {
     float x;
@@ -25,4 +25,4 @@ struct Vertex {
     struct VertexAttrib color;
 };
 
-__declspec(dllexport) struct Vertex* create_vertices(unsigned count);
+DllExport struct Vertex* create_vertices(unsigned count);

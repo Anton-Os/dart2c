@@ -43,10 +43,10 @@ void hello_c() {
   hello_world_func();
 }
 
-void create_image_c() {
-  final CreateImage create_image_func = library.lookupFunction<CreateImageFunc, CreateImage>("create_image");
+void create_struct_c() {
+  final CreateImage create_struct_func = library.lookupFunction<CreateImageFunc, CreateImage>("create_struct");
 
-  final image = create_image_func(256, 256);
+  final image = create_struct_func(256, 256);
 }
 
 void create_vertices_c(){
